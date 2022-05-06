@@ -1,0 +1,46 @@
+#: locale=en
+
+## Action
+
+### URL
+WebFrame_5BC0BD7F_64EC_358C_41CB_DF83480326B1.url = https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9178.728557153761!2d105.32472433878353!3d21.116869731879735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6b423e8a37b60e5e!2zQ-G7lW5nIEs5!5e1!3m2!1svi!2s!4v1650966449738!5m2!1svi!2s
+
+## Media
+
+### Title
+panorama_5286DF33_639C_7575_41D1_0FD5783B951B.label = Hầm Bưu Điện
+panorama_52785EBB_639C_1775_41A1_9B2285B7DE96.label = Hầm Bưu Điện
+panorama_51408C95_639C_3B3D_41D7_71B932BEBE8A.label = Hầm Bưu Điện
+
+## Skin
+
+### Button
+Button_5B6A0948_64EC_7D88_41D7_0D7B3488B532.label = DI TÍCH NHÀ SÀN
+Button_5880B162_64F4_0DB5_41D4_E89814237F89.label = DI TÍCH ĐÁ CHÔNG
+Button_251F52B4_64B4_0C86_41CB_7F812A8D4CBD.label = HẦM TỔNG ĐÀI ĐIỆN THOẠI
+Button_5B6DDCD3_64EC_3499_41BA_C7ECF7ECAEEC.label = NHÀ LƯU GIỮ THI HÀI BÁC HỒ
+Button_589A15DE_64ED_F488_41BE_12EE67BA5D11.label = NHÀ TIẾP KHÁCH
+Button_276009BE_64B4_3C82_4182_AE417B43C71F.label = NHÀ TIẾP KHÁCH
+Button_58EE95D6_64EC_1498_41C9_54F790F09054.label = NHÀ TƯỞNG NIỆM BÁC HỒ
+Button_5B4D4972_64EC_1D98_41CE_E033142C1E86.label = ĐOÀN XE PAP LỘI NƯỚC
+
+### Image
+Image_254E5D07_6494_3522_41D1_2235D37A0320.url = skin/Image_254E5D07_6494_3522_41D1_2235D37A0320_en.png
+Image_5C40B801_6494_7B1E_41C2_660CDE75EFF3.url = skin/Image_5C40B801_6494_7B1E_41C2_660CDE75EFF3_en.png
+
+### Label
+Label_58831418_6494_0B92_41D2_3836105AA362.text = DI TÍCH CĂN CỨ CỤC BƯU ĐIỆN TRUNG ƯƠNG
+Label_2745BCC9_64EC_34F5_41D7_72ACE614B3C3.text = DI TÍCH CĂN CỨ CỤC BƯU ĐIỆN TRUNG ƯƠNG
+Label_5EDCD130_6494_0D7D_41CC_760F7E170048.text = DI TÍCH CĂN CỨ CỤC BƯU ĐIỆN TRUNG ƯƠNG
+Label_5A38B3C6_64F4_0CFC_41D3_2E0C58F42261.text = DI TÍCH CĂN CỨ CỤC BƯU ĐIỆN TRUNG ƯƠNG
+Label_5377B49C_649C_0B24_41D5_D61F768891F8.text = HẦM TỔNG ĐÀI
+
+### Multiline Text
+HTMLText_5A38A1CD_64EC_0C8D_41D3_B156E96C53E8.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;font-size:37px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="color:#0099ff;font-size:37px;"><B>TITLE</B></SPAN></SPAN></DIV><DIV STYLE="text-align:left;font-size:22px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:22px;"><B>Subtitle</B></SPAN></SPAN></DIV><p STYLE="margin:0; line-height:12px;"><BR STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-size:12px;font-family:Arial, Helvetica, sans-serif;"/></p><DIV STYLE="text-align:justify;font-size:12px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-line;color:#000000;font-size:12px;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="color:#333333;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </SPAN></SPAN></DIV></div>
+
+## Tour
+
+### Description
+
+### Title
+tour.name = Hầm Bưu Điện

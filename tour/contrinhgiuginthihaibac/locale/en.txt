@@ -1,0 +1,30 @@
+#: locale=en
+
+## Media
+
+### Title
+panorama_7C4DAA0D_6F8B_E56B_41D7_2D70AB58F7F7.label = Công trình giữ gìn thi hài Bác
+panorama_7C4F8812_6F8B_A579_41D0_4E32AFDE9AEB.label = Công trình giữ gìn thi hài Bác
+panorama_7C4EB983_6F8B_E75F_41B3_20348B2232D2.label = Công trình giữ gìn thi hài Bác
+panorama_7A3C0725_6F8B_AB58_41D1_E4145786F8A4.label = Công trình giữ gìn thi hài Bác
+panorama_7C4D6A95_6F8B_A57B_41D3_C35FB8946927.label = Công trình giữ gìn thi hài Bác
+panorama_7C4D5AAA_6F8B_9AA9_41D6_3852FB74D2F2.label = Công trình giữ gìn thi hài Bác
+panorama_7C4C5B03_6F8A_7B5F_41CA_FF244CABAF00.label = Công trình giữ gìn thi hài Bác
+
+## Skin
+
+### Image
+Image_904E18DB_91E5_ECE4_41DC_5724FC9D066A.url = skin/Image_904E18DB_91E5_ECE4_41DC_5724FC9D066A_en.png
+
+### Label
+Label_9566D73B_91DF_65A7_41B6_9CB91078BCA5.text = CÔNG TRÌNH GIỮ GÌN THI HÀI BÁC
+
+### Multiline Text
+HTMLText_97DA9499_91E5_5B64_41C1_0257066C3372.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;text-indent:15px;padding-right:15px;font-size:19px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;text-indent:15px;"><SPAN STYLE="color:#333333;font-size:19px;text-indent:15px;">Công trình giữ gìn thi hài Chủ tịch Hồ Chí Minh gồm có: Nhà kinh, nhìn dưới là hầm ngầm để bảo vệ thi hài Chủ tịch Hồ Chí Minh trong chiến tranh và phòng làm thuốc giữ gìn thi hài.</SPAN></SPAN></DIV><DIV STYLE="text-align:left;text-indent:15px;padding-right:15px;font-size:19px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;text-indent:15px;"><SPAN STYLE="color:#333333;font-size:19px;text-indent:15px;">Nhà kính: Đây là ngôi nhà được xây dựng từ đầu năm 1965, khánh thành vào cuối năm 1966. Ngôi nhà 2 tầng, có diện tích khoảng 628 m2, tầng 1 gồm phòng họp, phòng khách và bếp; tầng 2 gồm 2 phòng: Phòng sinh hoạt chung và 2 phòng ở. Phía dưới ngôi nhà là hầm trú ẩn. Trong 6 năm chiến tranh (1969 - 1975), trời nhà này dùng cho các chuyên gia y tế Liên Xô ở để thực hiện nhiệm vụ giúp đỡ Việt Nam giữ gìn lâu dài thi hài Chủ tịch Hồ Chính Minh</SPAN></SPAN></DIV><DIV STYLE="text-align:left;text-indent:15px;padding-right:15px;font-size:19px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;text-indent:15px;"><SPAN STYLE="color:#333333;font-size:19px;text-indent:15px;">Công trình giữ gìn thi hài Chủ tịch Hồ Chí Minh: được khởi công cải tạo, nâng cấp ngày 10/9/1969, khánh thành ngày 15/2/1969 do Bộ Tư lệnh Công binh thực hiện. Từ năm 1969 đến năm 1975, thi hài Chủ tịch Hồ Chí Minh chủ yếu được giữ gìn tại đây. Công trình gồm có phần nổi phía trên và phần ngầm phía dưới.</SPAN></SPAN></DIV><DIV STYLE="text-align:left;text-indent:15px;padding-right:15px;font-size:19px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;text-indent:15px;"><SPAN STYLE="color:#333333;font-size:19px;text-indent:15px;">Ngày 23/5/1970, Hội đồng Khoa học cấp Nhà nước đã kiểm tra và kết luận: “Qua tám tháng đầu bảo vệ, giữ gìn thi hài Chủ tịch Hồ Chí Minh ở một nước khí hậu nhiệt đới, phải di chuyển xa những vẫn được bảo tồn đầy đủ, phù hợp với tình thế lúc Người còn sống”. Tại đây đã diễn ra lễ viếng Bác của các đồng chí trong Bộ Chính trị, Trung ương miền Nam và Quân ủy Trung ương</SPAN></SPAN></DIV><DIV STYLE="text-align:left;text-indent:15px;padding-right:15px;font-size:19px;"><SPAN STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;text-indent:15px;"><SPAN STYLE="color:#333333;font-size:19px;text-indent:15px;">Ngày 16/5/2001, đồng chí Nông Đức Mạnh - Tổng Bí thư Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam đã đến thăm Khu Di tích K9, trồng cây lưu niệm và dự lễ gắn tấm biển: "Nơi đây đã giữ gìn thi hài Chủ tịch Hồ Chí Minh từ năm 1969 đến năm 1975”.</SPAN></SPAN></DIV><p STYLE="margin:0; line-height:19px;"><BR STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-size:12px;font-family:Arial, Helvetica, sans-serif;"/></p><p STYLE="margin:0; line-height:19px;"><BR STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-size:12px;font-family:Arial, Helvetica, sans-serif;"/></p></div>
+
+## Tour
+
+### Description
+
+### Title
+tour.name = Công trình giữ gìn thi hài Bác
