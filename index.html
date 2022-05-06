@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="./libs/vue-cool-lightbox/vue-cool-lightbox.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <style>
+        * {
+            user-select: none;
+        }
+
+        .theme--light.v-tabs>.v-tabs-bar {
+            background-color: transparent;
+            height: 223px;
+        }
+
+        .v-slide-group__content {
+            justify-content: space-between;
+        }
+
+        .bottom-line {
+            color: #fff !important;
+            caret-color: #435a70 !important;
+        }
+
+        a.v-tab {
+            padding: 0;
+        }
+
+        .v-tabs-slider-wrapper {
+            display: none;
+        }
+        .v-tabs:not(.v-tabs--vertical).v-tabs--right>.v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-slide-group--has-affixes) .v-slide-group__next, .v-tabs:not(.v-tabs--vertical):not(.v-tabs--right)>.v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-slide-group--has-affixes) .v-slide-group__prev {
+            display: none;
+            /* visibility: hidden; */
+        }
+        a.item-info.v-tab.v-tab {
+            width: 360px;
+            height: 78px;
+            margin-top: 44px;
+            padding: 0;
+        }
+
+        a.item-info.v-tab.v-tab--active div {
+            background-color: #002A9E !important;
+        }
+
+        a.v-tab.v-tab.bad {
+            max-width: 540px !important;
+            width: 540px;
+            height: 78px;
+            background-color: rgb(177, 177, 177);
+        }
+        a.tab-his.v-tab{
+            background:#E8EEF6;
+            color: #707070;
+        }
+        a.bad.v-tab.v-tab--active {
+            max-width: 540px !important;
+
+            background-color: #002A9E !important;
+        }
+        .v-tab.v-tab--active p {
+            color: #fff !important;
+        }
+        a.tab-libra.v-tab.v-tab--active {
+            background-color: #002A9E !important;
+        }
+
+        a.tab-his.v-tab.v-tab--active {
+            background-color: #002A9E !important;
+        }
+
+        button.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--dark.v-size--default.teal {
+            position: absolute;
+            bottom: -367%;
+            font-size: 30px;
+            width: 59px;
+            height: 59px;
+            right: -238px;
+        }
+
+        .v-overlay.v-overlay--active.theme--dark .v-overlay__scrim {
+            opacity: 0.7 !important;
+        }
+
+        .v-overlay__content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .video.v-overlay.v-overlay--active.theme--dark .v-overlay__scrim {
+            opacity: 0.95 !important;
+        }
+
+        button.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--dark.v-size--default.teal {
+            top: 1480px;
+            left: 500px;
+        }
+
+        button.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--dark.v-size--default.teal {
+            top: 1480px;
+            left: 500px;
+            width: 80px;
+            height: 80px;
+            background: #fff !important;
+            border-radius: 50%;
+        }
+
+        button.white--text.map.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--dark.v-size--default.teal {
+            top: 1730px;
+        }
+
+        .time-line .theme--light.v-tabs>.v-tabs-bar {
+            height: 674px;
+        }
+
+        a.v-tab.v-tab--active .time-line-item1 {
+            background-image: url('images/history/timelineactive1.png') !important;
+        }
+
+        a.v-tab.v-tab--active .time-line-item2 {
+            background-image: url('images/history/timelineactive2.png') !important;
+        }
+
+        a.v-tab.v-tab--active .time-line-item3 {
+            background-image: url('images/history/timelineactive3.png') !important;
+        }
+
+        a.v-tab.v-tab--active .time-line-item4 {
+            background-image: url('images/history/timelineactive4.png') !important;
+        }
+
+        a.v-tab.v-tab--active .time-line-item5 {
+            background-image: url('images/history/timelineactive5.png') !important;
+        }
+
+        .time-line-item3 {
+            outline: none !important;
+            border: none !important;
+            background-color: transparent !important;
+        }
+
+        .time-line-item3:active {
+            outline: none !important;
+            border: none !important;
+
+        }
+
+        .v-tab--active.v-tab:not(:focus):before {
+            opacity: 0;
+        }
+
+        .v-ripple__container {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+
+        .theme--light.v-tabs .v-tab--active:before,
+        .theme--light.v-tabs .v-tab--active:hover:before,
+        .theme--light.v-tabs .v-tab:focus:before {
+            opacity: 0;
+        }
+
+        .image-map.active {
+            display: none;
+        }
+        .flipbook-container{
+            box-shadow: 1px 4px 19px 5px #00000047;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-main style="width: 1080px;height:1920px;background-size: cover;">
+                <audio id="audio" autoplay="true" muted="muted" src="./mp3/audioK9.mp3"></audio>
+
+                <!-- Header -->
+                <div style="background-image:url('images/home/Component\ 3\ –\ 3.png') ;background-size: cover;width: 1080px;
+                    height: 116px;position: absolute;z-index: 3;">
+
+                    
+                </div>
+                <!-- Body -->
+                <!--Home Page-->
+                <v-tabs-items v-model="tab" touchless>
+                    <v-tab-item value="tab-1">
+                        <v-container style="height: 1920px;;padding:0;max-width: 100%;background-size: cover;">
+                            <iframe allow="vr; xr; accelerometer; magnetometer; gyroscope; autoplay;"
+                                style="width: 1080px;height: 1920px;padding:0;position: absolute;z-index: 1;"
+                                src="./banner2/index.htm"></iframe>
+                            <v-row style="margin:0;padding-top: 525px;justify-content: center">
+
+                                <div v-for="item in items" style="display: flex;align-items: center;justify-content: center;z-index:3;height:220px;width:380px;background-image: linear-gradient(301deg,#1096BE, #31C3D7E6,#0C5389);
+                                    border-radius: 20px; margin-bottom: 80px;margin-left: 60px;margin-right: 60px;
+                                      background-color: white;background-image:url('images/home/Rectangle\ 3427.png') ;background-size: cover;border: 2px solid #E2F8FF;
+                                      " v-on:click="setTab('tab-'+item.id   );">
+                                    <p v-html="item.title" style="text-align: center;color: white;font-size: 24px;font-family: 'SF Pro Display',Bold;"></p>
+                                    <!-- <img :src=" item.title" :style="{ padding:item.padding}"> -->
+                                </div>
+                            </v-row>
+                        </v-container>
+                    </v-tab-item>
+                    <!--2---->
+                    <v-tab-item value="tab-2">
+                        <v-container style="width: 1080px;height: 1920px;background-color: #FFF;max-width: 100%;
+                            padding: 0;overflow: scroll;padding-bottom: 220px;">
+                            <div
+                                style="width: 1080px;height:230px;margin-top: 116px;background-color: #FFF;border-bottom: 1px solid #00000029;">
+                                <p style="text-align: center;color:#002A9E;font-size: 40px;font-family: 'Segoe UI',Bold;font-weight: 700;padding-top: 30px;">THÔNG TIN GIỚI THIỆU CHUNG</p>
+
+                                <div style="display:flex;">
+                                    <v-tabs v-model="tabInfo">
+                                        <v-tab class="item-info" v-for="itemIntro in itemsIntro"
+                                            v-bind:key="itemIntro.id" v-bind:href="'#tabInfo-' + itemIntro.id">
+                                            <div style="width:360px;height:78px;;
+                                                "
+                                                :style="{ 'background-color':itemIntro.bgrcolor}">
+                                                <p style="font-size: 22px;text-transform: initial;font-family: 'Segoe UI','Semibold';line-height:28px;color:#707070;
+                                                    text-align:center;margin: 24px 0;letter-spacing: 0;">
+                                                    {{itemIntro.title}}</p>
+                                            </div>
+                                        </v-tab>
+                                    </v-tabs>
+
+                                </div>
+                            </div>
+                            <div style="width: 1080px;height: 1348px;padding:70px 82px 0px 80px;overflow: scroll;">
+
+                                <v-tabs-items v-model="tabInfo">
+                                    <v-tab-item value="tabInfo-1">
+                                        <h3 style="font-size: 35px;margin-bottom:30px;;font-family: 'Segoe UI','Bold';line-height: 44px;">
+                                            Chức năng nhiệm vụ</h3>
+                                        <p style="font-family:'Segoe UI','Semibold';font-size: 30px; text-align: justify;">Năm 1960, Cục
+                                            Doanh trại thuộc tổng cục Hậu cần xây dựng một ngôi nhà sàn làm vị trí hội
+                                            họp nghỉ ngơi của Bác Hồ và Bộ chính trị Trung ương Đảng. Xung quanh là hệ
+                                            thống công sự kiên cố, khu vực này đặt tên là công trường K9. Trong đó, hầm
+                                            Tổng đài điện thoại K9 của Cục Bưu điện Trung ương là nơi giữ nhiệm vụ chính
+                                            trị quan trọng đảm bảo dự phòng thông tin liên lạc khi xảy ra các tình huống
+                                            nguy cấp như máy bay oanh tạc, hoặc nghi ngờ có địch... Tại K9 Đá Chông còn
+                                            có một căn hầm khác nữa để phục vụ cho việc trú ẩn của Bộ Chính trị khi gặp
+                                            nguy hiểm. Cả hai căn hầm này đều được xây dựng kiên cố, bê tông cốt thép
+                                            rất vững chắc, cửa sắt rất dày, phía trên được ngụy trang rất tốt</p>
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv1.png">
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv2.png">
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv3.png">
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv4.png">
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv5.png">
+                                        <p style="font-family:'Segoe UI','Semibold';font-size: 30px;text-align: justify;">Trong những năm
+                                            1960-1969, tại nơi này, Bác Hồ và các đồng chí trong Bộ Chính trị đã có lần
+                                            họp bàn, quyết định những vấn đề quan trọng của đất nước, tiếp 2 đoàn khách
+                                            quốc tế và nhiều lần Bác lên nghỉ tại đây. Ngày 15 tháng 12 năm 1969, công
+                                            trình phục vụ nhiệm vụ giữ gìn thi hài Bác hoàn thành. Khu di tích Đá Chông
+                                            K9 mật danh K9 được đổi thành K84. Từ đó, K84 trở thành nơi giữ gìn thi hài
+                                            Bác chủ yếu trong những năm tháng chiến tranh ác liệt.</p>
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv6.png">
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv7.png">
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv8.png">
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/cnnv9.png">
+
+
+                                    </v-tab-item>
+
+                                    <v-tab-item value="tabInfo-2">
+                                        <h3 style="font-size: 35px;margin-bottom:30px;;font-family: 'Segoe UI','Bold';line-height: 44px;">
+                                            Nhân sự vận hành</h3>
+                                        <p style="font-family:'Segoe UI','Semibold';font-size: 30px;text-align: justify;">Văn phòng Trung
+                                            ương Đảng giao cho Cục nhiệm vụ củng cố và phát triển hệ thống tổng đài phục
+                                            vụ Bác Hồ và các đồng chí lãnh đạo Đảng, Nhà nước lên làm việc ở K9 - Đá
+                                            Chông. Những cán bộ đầu tiên của Cục Bưu điện Trung ương được giao nhiệm vụ
+                                            phục vụ tại Tổng đài gồm các đồng chí: Nguyễn Văn Hanh, Nguyễn Hữu Hạc, Vũ
+                                            Văn Kha và Trần Xuân Đam. Những cán bộ này đều được điều động bí mật bởi
+                                            Trung ương Đảng, đã cùng chung một chiến hào sống và công tác như những
+                                            chiến sĩ của đơn vị bộ đội bảo vệ K9, giữ bí mật tuyệt đối, đảm bảo thông
+                                            tin thông suốt trong mọi tình huống. Sau khi Hiệp định Pari về chấm dứt
+                                            chiến tranh, lập lại hòa bình ở Việt Nam được ký kết năm 1973, các cán bộ
+                                            của tổ tổng đài đã hoàn thành xuất sắc nhiệm vụ và trở về Hà Nội công tác.
+                                            Tổng đài điện thoại được giao lại cho đơn vị bộ đội bảo vệ tại khu vực K9 Đá
+                                            Chông tháng 3/1973.</p>
+                                        <img style="width:80%;margin-left: 10%;margin-bottom: 30px;"
+                                            src="./images/intro/nsvh10.png">
+
+                                    </v-tab-item>
+
+                                    <v-tab-item value="tabInfo-3">
+                                        <h3 style="font-size: 35px;font-family: 'Segoe UI','Bold';line-height: 44px;">
+                                            Lịch sử xây dựng</h3>
+                                        <img src="/images/intro/content1.png" style="margin-top: 28px;">
+
+                                        <h3
+                                            style="font-size: 35px;font-family: 'Segoe UI','Bold';line-height: 44px;margin-top: 70px;">
+                                            Lịch sử phục vụ</h3>
+                                        <img src="/images/intro/content2.png" style="margin-top: 28px;">
+                                    </v-tab-item>
+                                </v-tabs-items>
+
+
+                            </div>
+                        </v-container>
+                    </v-tab-item>
+
+                    <!-- Tab3 -->
+                    <v-tab-item value="tab-3">
+                        <v-container style="width: 1080px;height: 1920px;background-color: #FFF;max-width: 100%;
+                            padding: 0;overflow: scroll;">
+                            <div style="width: 1080px;height:230px;margin-top: 116px;">
+                                <p style="text-align: center;color:#002A9E;font-size: 40px;font-family: 'Segoe UI',Bold;font-weight: 700;padding-top: 40px;padding-bottom: 40px;">TƯƠNG TÁC MÔ HÌNH 3D</p>
+
+                                <div style="display:flex;">
+                                    <v-tabs v-model="tab3D">
+                                        <v-tab href="#tab3d-1" class="bad">
+                                            <div
+                                                style="width: 540px;height: 80px;text-transform: initial;;
+                                    color: #fff;font-family: 'Segoe UI','Semibold';font-size: 22px;padding: 25px 165px;letter-spacing: 0;">
+                                                Nhà và hầm tổng đài
+                                            </div>
+                                        </v-tab>
+                                        <v-tab href="#tab3d-2" class="bad">
+                                            <div
+                                                style="width: 540px;height: 70px;text-transform: initial;;
+                                    color: #fff;font-family: 'Segoe UI','Semibold';font-size: 22px;padding: 22px 71px 26px 71px;letter-spacing: 0;">
+                                                Hiện vật kết nối tổng đài
+                                            </div>
+                                        </v-tab>
+                                    </v-tabs>
+
+
+                                </div>
+
+
+                            </div>
+                            <v-tabs-items v-model="tab3D">
+                                <v-tab-item value="tab3d-1">
+                                    <!-- <div style="width: 1080px;height: 1470px;padding:0;background-image:url('images/3D/Mask\ Group\ 42.png') ;background-size: cover;">
+                                
+                            </div> -->
+                                    <iframe allow="vr; xr; accelerometer; magnetometer; gyroscope; autoplay;"
+                                        style="width: 1080px;height: 1470px;padding:0;"
+                                        src="./hambuudien/index.htm"></iframe>
+
+                                </v-tab-item>
+                                <v-tab-item value="tab3d-2">
+                                    <h1>3D tab2</h1>
+                                </v-tab-item>
+                            </v-tabs-items>
+
+                        </v-container>
+                    </v-tab-item>
+                    <!-- Tab4 -->
+
+                    <v-tab-item value="tab-4">
+                        <v-container style="width: 1080px;height: 1920px;background-color: #FFF;max-width: 100%;
+                padding: 0;overflow: scroll;">
+                            <div style="width: 1080px;height:233px;margin-top: 116px;">
+                                <div style="padding-top: 48px;">
+
+                                    <p
+                                    style="text-align: center;color:#002A9E;font-size: 40px;font-family: 'Segoe UI',Bold;font-weight: 700;">THƯ VIỆN HÌNH ẢNH , VIDEO</p>
+                                </div>
+
+                                <div style="display:flex;margin:44px 0px 0 0px">
+                                    <v-tabs v-model="tabImg">
+                                        <v-tab v-on:click="mutefalse()" class="tab-libra" href="#tabImg-1"
+                                            style="max-width: 540px;width:540px;height: 80px;padding: 24px 149px 24px 150px;background-color: #B1B1B1;">
+                                            <div
+                                                style="width: 91px;height: 30px;
+                                    color: #fff;font-family: 'Segoe UI','Semibold';font-size: 22px;text-transform:initial;letter-spacing: 0;">
+                                                Hình ảnh
+                                            </div>
+                                        </v-tab>
+                                        <v-tab class="tab-libra tab-video" href="#tabImg-2" v-on:click="mute()"
+                                            style="max-width: 540px;width:540px;height: 80px;padding: 24px 28px 24px 28px;background-color: #B1B1B1;">
+                                            <div
+                                                style="width: 333.42px;height: 30px;
+                                    color: #fff;font-family: 'Segoe UI','Semibold';font-size: 22px;text-transform:initial;letter-spacing: 0;">
+                                                Video phỏng vấn nhân vật lịch sử
+                                            </div>
+                                        </v-tab>
+                                    </v-tabs>
+
+
+                                </div>
+
+
+                            </div>
+                            <div style="width: 1080px;height: 1424px;padding:0;background:#fff">
+                                <v-tabs-items v-model="tabImg">
+                                    <v-tab-item value="tabImg-1">
+                                        <div
+                                            style="display: flex;flex-wrap: wrap;margin-top:80px;margin-left: 60px;padding-bottom: 190px;overflow:scroll;height: 1424px;">
+
+                                            <div v-for="(libra,imageIndex) in libras" :key="imageIndex"
+                                                v-on:click="nextPage(imageIndex)" @click="overlay = !overlay"
+                                                :style="{ backgroundImage : 'url(' + encodeURI(libra.image) + ')' }"
+                                                style="  width: 280px;height: 180px;margin: 0 20px;margin-bottom:50px;z-index: 2;border-radius: 20px;background-size: cover;
+                                    background-position: center;background-repeat: no-repeat;
+                                    ">
+                                            </div>
+
+
+                                            <v-overlay :value="overlay">
+
+                                                <div
+                                                    style="width: 920px;height: 1200px;border: 1px solid #707070;border-radius: 10px;background-color: #fff;position: absolute;;top: 230px;left: 80px;">
+                                                    <div
+                                                        style="margin:100px 100px 380px 100px;height: 720px;width: 720px;display:flex;justify-content:center">
+                                                        <img v-bind:src=" libras[zIndex].image"
+                                                            style="max-width:720px;max-height: 720px;height: max-content;">
+                                                    </div>
+                                                    <p style="position:absolute;bottom:78px;color:#000;left: 60px;right: 60px;width: 800px;font-size:24px;height: 243px;text-align:center;"
+                                                        v-html="libras[zIndex].content"></p>
+                                                </div>
+
+                                                <v-btn class="white--text" color="teal" @click="overlay = false">
+                                                    <img src="images/libra/cancel.png">
+                                                </v-btn>
+                                            </v-overlay>
+                                            <img src="/images/libra/lotus-4776450.png"
+                                                style="position:absolute;top: 477px;left: 299px;">
+                                        </div>
+                                    </v-tab-item>
+
+                                    <v-tab-item value="tabImg-2" v-on:click="mute()">
+                                        <div
+                                            style="display: flex;flex-wrap: wrap;margin-top:80px;margin-left: 60px;padding-bottom: 190px;overflow:scroll;">
+
+                                           
+                                            <div style="width:50%">
+                                                <div style="margin:0 20px" @click="overlay = !overlay   " v-on:click="nextvideo(0)">
+                                                    <img style="width:100%;border-radius: 20px;" src="./images/libra/img1.png">
+                                                    <p style="font-size:26px;font-family:'Segoe UI','Semibold'">Video 1</p>
+                                                </div>
+                                            </div>
+
+                                            <div style="width:50%">
+                                                <div style="margin:0 20px" @click="overlay = !overlay" v-on:click="nextvideo(1)">
+                                                    <img style="width:100%;border-radius: 20px;" src="./images/libra/img2.png">
+                                                    <p style="font-size:26px;font-family:'Segoe UI','Semibold'">Video 2</p>
+                                                </div>
+                                            </div>
+
+                                            <div style="width:50%">
+                                                <div style="margin:0 20px" @click="overlay = !overlay" v-on:click="nextvideo(2)">
+                                                    <img style="width:100%;border-radius: 20px;" src="./images/libra/img3.png">
+                                                    <p style="font-size:26px;font-family:'Segoe UI','Semibold'">Video 3</p>
+                                                </div>
+                                            </div>
+
+                                            <v-overlay class="video" :value="overlay">
+
+                                                <div style="width: 920px;border-radius: 10px;">
+                                                    <div
+                                                        style="width: 1080px;height: 1920px;display:flex;justify-content: center;align-items: center;">
+                                                        <video style="width:920px;" controls>
+                                                            <source :src="video[videoIndex]"
+                                                                type="video/mp4">
+                                                        </video>
+                                                    </div>
+                                                </div>
+
+                                                <v-btn class="white--text" color="teal" @click="overlay = false">
+                                                    <img src="images/libra/cancel.png">
+                                                </v-btn>
+                                            </v-overlay>
+                                            
+                                        </div>
+                                    </v-tab-item>
+                                </v-tabs-items>
+
+
+                            </div>
+                        </v-container>
+                    </v-tab-item>
+                    <!-- Tab5 -->
+
+                    <v-tab-item value="tab-5">
+                        <v-container style="width: 1080px;height: 1920px;background-color: #FFF;max-width: 100%;
+                            padding: 0;overflow: scroll;">
+                            <div style="width: 1080px;height:152px;margin-top: 116px;">
+                               <div style="padding-top: 48px;">
+
+                                    <p style="text-align: center;color:#002A9E;font-size: 40px;font-family: 'Segoe UI',Bold;font-weight: 700;">THAM QUAN 3D , BẢN ĐỒ KẾT NỐI</p>
+                                </div>
+                            </div>
+                            <!-- Image Map Generated by http://www.image-map.net/ -->
+                            <div style="">
+
+                                <div class="image-map" style="width: 1080px;height:1574px;overflow:scroll">
+                                    <img src="./tour/Map/Map/map-coso-01.jpg" usemap="#image-map">
+
+                                    <map name="image-map">
+                                        <area target="" alt="map1" title="map1" coords="1750,1109,1647,1018"
+                                            shape="rect" v-on:click="setMap(1)" @click="overlay = !overlay">
+                                        <area target="" alt="map2" title="map2" coords="1263,1062,1360,1139"
+                                            shape="rect" v-on:click="setMap(2)" @click="overlay = !overlay">
+                                        <area target="" alt="map3" title="map3" coords="968,1261,1053,1344" shape="rect"
+                                            v-on:click="setMap(3)" @click="overlay = !overlay">
+                                        <area target="" alt="map4" title="map4" coords="702,1557,614,1476" shape="rect"
+                                            v-on:click="setMap(4)" @click="overlay = !overlay">
+                                        <area target="" alt="map5" title="map5" coords="887,1040,984,1126" shape="rect"
+                                            v-on:click="setMap(5)" @click="overlay = !overlay">
+                                        <area target="" alt="map6" title="map6" coords="879,781,979,864" shape="rect"
+                                            v-on:click="setMap(6)" @click="overlay = !overlay">
+                                        <area target="" alt="map7" title="map7" coords="813,450,909,530" shape="rect"
+                                            v-on:click="setMap(7)" @click="overlay = !overlay">
+                                        <area target="" alt="map8" title="map8" coords="1070,172,1169,253" shape="rect"
+                                            v-on:click="setMap(8)" @click="overlay = !overlay">
+                                        <area target="" alt="map9" title="map9" coords="1133,1789,1236,1880"
+                                            shape="rect" v-on:click="setMap(9)" @click="overlay = !overlay">
+                                    </map>
+                                </div>
+
+                                <v-overlay :value="overlay">
+
+                                    <div style="width: 100%;height: 1200px;position: absolute;;top: 230px">
+                                        <iframe allow="vr; xr; accelerometer; magnetometer; gyroscope; autoplay;"
+                                            style="width: 1080px;height: 1474px;padding:0;position: absolute;z-index: 1;"
+                                            :src="tours[indexMap]"></iframe>
+
+                                    </div>
+
+                                    <v-btn class="white--text map" color="teal" @click="overlay = false">
+                                        <img src="images/libra/cancel.png">
+                                    </v-btn>
+                                </v-overlay>
+                            </div>
+
+
+                        </v-container>
+                    </v-tab-item>
+                    <!-- Tab6 -->
+
+                    <v-tab-item value="tab-6">
+                        <v-container style="width: 1080px;height: 1920px;background-color: #fff;max-width: 100%;
+                padding: 0;overflow: scroll;">
+                            <div style="width: 1080px;height:230px;margin-top: 116px;">
+                                <p style="text-align: center;color:#002A9E;font-size: 40px;font-family: 'Segoe UI',Bold;font-weight: 700;padding-top: 40px;">LỊCH SỬ BƯU CỤC TRUNG ƯNG</p>
+
+                                <div style="display:flex;margin:50px 0px 0 0px">
+                                    <v-tabs v-model="tabHis">
+
+                                        <v-tab class="tab-his" href="#tabHis-2"
+                                            style="max-width: 540px;;width: 540px;height: 80px;background-color:#B1B1B1; ">
+                                            <div
+                                                style="width: 226px;height: 30px;
+                                    color: #fff;font-family: 'Segoe UI','Semibold';font-size: 22px;text-transform: initial;letter-spacing: 0;">
+                                                Sách lịch sử cục BĐTW
+                                            </div>
+                                        </v-tab>
+                                        <v-tab class="tab-his" href="#tabHis-3"
+                                            style="max-width: 540px;;width: 540px;height: 80px;background-color:#B1B1B1;  ">
+                                            <div
+                                                style="width: 284px;height: 58px;
+                                    color: #fff;font-family: 'Segoe UI','Semibold';font-size: 22px;text-transform: initial;letter-spacing: 0;">
+                                                Lịch sử di tích tổng đài<br> điện thoại tại K9 - Đá Chông
+                                            </div>
+                                        </v-tab>
+
+                                    </v-tabs>
+
+
+                                </div>
+
+
+                            </div>
+                            <v-tabs-items v-model="tabHis" touchless>
+                              
+                                <v-tab-item value="tabHis-2">
+                                    <div
+                                        style="width: 1080px;background: #fff;
+                                        height: 1400px;padding-top:250px;box-shadow: -7px -6px 18px #00000029;display:flex;justify-content:center;">
+                                        <Flipbook 
+                                            class="flipbook" :pages="pages" :pages-hi-res="pagesHiRes"
+                                            v-slot="flipbook" ref="flipbook" style="height:722px; width:956px;"
+                                             :flip-duration=1000
+                                        >
+                                            <div class="action-bar" style="display:flex;font-size:40px;justify-content: center;align-items: center;position:absolute;top: 1130px;left:357px">
+                                                <div
+                                                class="btn left"
+                                                :class="{ disabled: !flipbook.canFlipLeft }"
+                                                @click="flipbook.flipLeft"
+                                                style="margin-right: 20px;"
+                                                ><img src="./images/history/btprevpage.png"></div>
+                                            
+                                                <span class style="font-size:30px;font-family: 'Segoe UI','Semibold';">{{ flipbook.page }}/</span>
+                                              
+                                                <span class style="margin-right: 20px;font-family: 'Segoe UI','Semibold';font-size: 30px;">{{ flipbook.numPages }}</span>
+                                                
+                                                <div
+                                                class="btn right"
+                                                :class="{ disabled: !flipbook.canFlipRight }"
+                                                @click="flipbook.flipRight"
+
+                                                ><img src="./images/history/btnextpage.png"></div>
+                                            </div>
+                                        </Flipbook>
+
+                                    </div>
+                                </v-tab-item>
+
+                                <v-tab-item value="tabHis-3">
+                                    <div
+                                        style="width: 1080px;height: 1470px;padding:0;box-shadow: -7px -6px 18px #00000029;">
+                                        <v-tabs-items v-model="tabTimelines">
+                                            <v-tab-item value="tabTimeline-0">
+                                                <div
+                                                    style="display:flex;flex-direction:column;width: 1080px;height: 900px;background-image:url('images/history/Group\ 17506@2x.png');background-size: cover;padding: 70px 80px;overflow: scroll;">
+                                                    <h3
+                                                        style="color: #303030;font-size:35px;font-family: 'Segoe UI','Bold';letter-spacing: 0;">
+                                                        Tháng 5/1967: Thiết lập tổng đài tại K9 – Đá Chông</h3>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Đầu năm 1967, giặc Mỹ tăng cường đánh phá miền Bắc bằng không
+                                                        quân và hải quân. Các cơ quan, đơn vị được lệnh triệt để sơ tán
+                                                        khỏi thành phố, tránh thiệt hại khi giặc Mỹ điên cuồng leo lên
+                                                        nấc thang chiến tranh mới. Thực hiện triển khai mạng liên lạc
+                                                        hữu tuyến phục vụ các cơ quan Trung ương sơ tán ở khu vực Ba Vì,
+                                                        Hà Tây. Tháng 5 năm 1967, thiết lập tổng đài điện thoại K9 tại
+                                                        Đá Chông. Lập đường dây từ khu C (chân núi Đá Chông) sang đài
+                                                        phát tín 80B của Cục Bưu điện Trung ương đặt trong khu rừng
+                                                        thuộc địa phận xóm Lặt, xã Minh Quang, Ba Vì.</p>
+                                                    <img src="./images/history/timeline11.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Chủ tịch Hồ Chí Minh trong một lần lên thăm, xem xét khu Đá
+                                                        Chông (Ba Vì)</p>
+                                                    <img src="./images/history/timeline12.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Quyết định thành lập Cục Bưu điện Trung ương</p>
+
+                                                </div>
+                                            </v-tab-item>
+
+                                            <v-tab-item value="tabTimeline-1">
+                                                <div
+                                                    style="display:flex;flex-direction:column;width: 1080px;height: 900px;background-image:url('images/history/Group\ 17506@2x.png');background-size: cover;padding: 70px 80px;overflow: scroll;">
+                                                    <h3
+                                                        style="color: #303030;font-size:35px;font-family: 'Segoe UI','Bold';letter-spacing: 0;">
+                                                        Từ năm 1969 đến năm 2001: Quá trình phục vụ, đảm bảo thông tin
+                                                        liên lạc cho Trung Ương và giữ gìn thi hài Bác.</h3>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Tháng 9/1969, Hồ chủ tịch qua đời, Bộ Chính trị và Quân ủy Trung
+                                                        ương quyết định chọn Khu căn cứ Đá Chông (K9) để xây dựng thêm
+                                                        công trình "Ngôi nhà kính", "Hầm ngầm" phục vụ nhiệm vụ giữ gìn
+                                                        thi hài Bác. </p>
+                                                    <img src="./images/history/timeline21.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Nơi gìn giữ thi hài Chủ tịch Hồ Chí Minh</p>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Tháng 3/1973, sau nhiều lần di chuyển thi hài Hồ chủ tịch đến
+                                                        các địa điểm khác thì Bộ Chính trị và Quân ủy Trung ương đã
+                                                        quyết định đưa thi hài Bác đưa trở lại K84 để bảo quản vì nơi
+                                                        đây có điều kiện kỹ thuật tốt </p>
+                                                    <img src="./images/history/timeline22.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Quyết định thành lập Cục Bưu điện Trung ương</p>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Năm 1995, Bộ Tư lệnh Bảo vệ Lăng đã tổ chức đón tiếp, phục vụ
+                                                        các đồng chí lãnh đạo Đảng, Nhà nước, lãnh đạo các bộ, ban,
+                                                        ngành ở Trung ương, các địa phương và nhiều đoàn đại biểu của
+                                                        các cơ quan, đơn vị, nhà trường đến dâng hương tưởng niệm Chủ
+                                                        tịch Hồ Chí Minh, tham quan khu vực, trồng cây lưu niệm, tổ chức
+                                                        lễ báo công, lễ kết nạp Đảng, kết nạp Đoàn, sinh hoạt truyền
+                                                        thống. </p>
+                                                    <img src="./images/history/timeline23.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Các cán bộ thăm lại nơi đặt tổng đài Cục Bưu điện Trung ương
+                                                        phục vụ Bác Hồ tại k9.</p>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Đặc biệt, ngày 16/05/2001, Tổng Bí thư Nông Đức Mạnh đã trồng
+                                                        cây lưu niệm và dự lễ đặt tấm biển đồng kỷ niệm nơi giữ gìn thi
+                                                        hài Bác trong 6 năm chiến tranh chống Mỹ: <i>“Đây là nơi đã giữ
+                                                            gìn thi hài Chủ tịch Hồ Chí Minh từ năm 1969 đến năm
+                                                            1975”.</i> </p>
+
+                                                </div>
+                                            </v-tab-item>
+
+
+                                            <v-tab-item value="tabTimeline-2">
+                                                <div
+                                                    style="display:flex;flex-direction:column;width: 1080px;height: 900px;background-image:url('images/history/Group\ 17506@2x.png');background-size: cover;padding: 70px 80px;overflow: scroll;">
+                                                    <h3
+                                                        style="color: #303030;font-size:35px;font-family: 'Segoe UI','Bold';letter-spacing: 0;">
+                                                        Ngày 16/5/2006: Gắn biển di tích tổng đài điện thoại K9 – Đá
+                                                        Chông</h3>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Nhân dịp kỷ niệm 116 năm Ngày sinh của Người, Cục Bưu điện Trung
+                                                        ương phối hợp với Bộ Tư lệnh Bảo vệ Lăng Chủ tịch Hồ Chí Minh đã
+                                                        tổ chức lễ gắn biển di tích lịch sử nơi đặt Tổng đài điện thoại
+                                                        phục vụ Trung ương Đảng, Bác Hồ trong những năm từ 1967-1973.
+                                                    </p>
+                                                    <img src="./images/history/timeline31.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Lễ gắn biển: “ Nơi đặt tổng đài điện thoại phục vụ Chủ tịch Hồ
+                                                        Chí Minh và Trung ương Đảng từ năm 1967 đến năm 1973”.</p>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Năm 2012, đơn vị tiếp tục xây dựng, mở rộng, cải tạo, nâng cấp
+                                                        thành khu hoàn chỉnh để phục vụ đón khách tham quan như hiện
+                                                        nay. Năm 2014, Ban Bí thư Trung ương Đảng đồng ý xây dựng Nhà
+                                                        tưởng niệm Chủ tịch Hồ Chí Minh tại K9. Sau hơn một năm triển
+                                                        khai thực hiện, công trình đã hoàn thành với chất lượng cao về
+                                                        nội dung tư tưởng, kỹ thuật, mỹ thuật, xứng tầm với giá trị của
+                                                        Khu K9.</p>
+
+                                                    <img src="./images/history/timeline32.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Nhà tưởng niệm Chủ tịch Hồ Chí Minh tại K9- Đá Chông</p>
+
+                                                </div>
+                                            </v-tab-item>
+
+                                            <v-tab-item value="tabTimeline-3">
+                                                <div
+                                                    style="display:flex;flex-direction:column;width: 1080px;height: 900px;background-image:url('images/history/Group\ 17506@2x.png');background-size: cover;padding: 70px 80px;overflow: scroll;">
+                                                    <h3
+                                                        style="color: #303030;font-size:35px;font-family: 'Segoe UI','Bold';letter-spacing: 0;">
+                                                        Năm 2017: Trùng tu, bảo dưỡng di tích</h3>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Sau khi khánh thành Nhà tưởng niệm Chủ tịch Hồ Chí Minh tại Khu
+                                                        K9 ngày 02/09/2015, đến ngày 19/05/2016, Ban Quản lý Lăng Chủ
+                                                        tịch Hồ Chí Minh đã quyết định mở rộng tham quan tới tất cả đồng
+                                                        bào trong cả nước. Tới ngày 19/05/2017 chính thức mở rộng đón
+                                                        khách quốc tế.</p>
+                                                    <img src="./images/history/timeline41.png"
+                                                        style="width:80%;margin-left: 10%;margin-bottom: 25px;">
+                                                    <img src="./images/history/timeline42.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Nơi đón tiếp du khách đến tham quan Khu di tích K9 – Đá Chông.
+                                                    </p>
+                                                    <img src="./images/history/timeline43.png"
+                                                        style="width:80%;margin-left: 10%;margin-bottom: 25px;">
+                                                    <img src="./images/history/timeline44.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Du khách đến tham quan Nhà tưởng niệm Chủ tịch Hồ Chí Minh tại
+                                                        K9- Đá Chông</p>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Đặc biệt, năm 2017, Bộ Tư lệnh Bảo vệ Lăng đã tổ chức Hội thảo
+                                                        khoa học “Kỷ niệm 60 năm Chủ tịch Hồ Chí Minh đến Đá Chông
+                                                        (05/1957- 05/2017).</p>
+                                                </div>
+                                            </v-tab-item>
+
+                                            <v-tab-item value="tabTimeline-4">
+                                                <div
+                                                    style="display:flex;flex-direction:column;width: 1080px;height: 900px;background-image:url('images/history/Group\ 17506@2x.png');background-size: cover;padding: 70px 80px;overflow: scroll;">
+                                                    <h3
+                                                        style="color: #303030;font-size:35px;font-family: 'Segoe UI','Bold';letter-spacing: 0;">
+                                                        - Hiện nay: phục vụ khách trong nước và quốc tế</h3>
+                                                    <p
+                                                        style="color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;">
+                                                        Hiện nay, Khu di tích tổng đài điện thoại K9 – Đá Chông vẫn đang
+                                                        mở cửa đón tiếp du khách cả trong nước và quốc tế.</p>
+                                                    <img src="./images/history/timeline51.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Đoàn tham quan nghe hướng dẫn viên giới thiệu về nơi Bác từng ở
+                                                        và làm việc.</p>
+                                                    <img src="./images/history/timeline52.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Đoàn thanh niên Bộ về nguồn tại Khu di tích K9 – Đá Chông</p>
+                                                    <img src="./images/history/timeline53.png"
+                                                        style="width:80%;margin-left: 10%;margin-bottom: 25px;">
+                                                    <img src="./images/history/timeline54.png"
+                                                        style="width:80%;margin-left: 10%;">
+                                                    <p
+                                                        style="font-style: italic;color: #303030;font-size:30px;font-family: 'Segoe UI','Semibold';line-height: 44px;letter-spacing: 0;margin-top: 40px;display: inline-block;text-align: center;">
+                                                        Áo cá tại K9 – Đá Chông</p>
+
+
+
+                                                </div>
+                                            </v-tab-item>
+                                        </v-tabs-items>
+
+                                        <div style="background-color:#F5F5F5;width: 1080px;height:674px"
+                                            class="time-line">
+                                            <div
+                                                style="background-color:#D6D6D6;width: 1080px;height:3px;position: absolute;top: 1144px;">
+                                            </div>
+                                            <v-tabs v-model="tabTimelines">
+                                                <v-tab href="#tabTimeline-0"
+                                                    style="position: absolute;top: 175px;left: 60px;">
+                                                    <div class="time-line-item1"
+                                                        style="background-image: url('/images/history/timeline1.png');width: 233px;height: 227px;">
+                                                    </div>
+                                                </v-tab>
+                                                <v-tab href="#tabTimeline-1"
+                                                    style="position: absolute;top: 50px;left: 235px;">
+                                                    <div class="time-line-item2"
+                                                        style="background-image: url('/images/history/timeline2.png');width: 244px;height: 265px;">
+                                                    </div>
+                                                </v-tab>
+                                                <v-tab href="#tabTimeline-2"
+                                                    style="position: absolute;top: 175px;left: 422px;">
+                                                    <div class="time-line-item3"
+                                                        style="background-image: url('/images/history/timeline3.png');width: 233px;height: 227px;">
+                                                    </div>
+                                                </v-tab>
+                                                <v-tab href="#tabTimeline-3"
+                                                    style="position: absolute;top: 69px;left: 595px;">
+                                                    <div class="time-line-item4"
+                                                        style="background-image: url('/images/history/timeline4.png');width: 244px;height: 246px;">
+                                                    </div>
+                                                </v-tab>
+                                                <v-tab href="#tabTimeline-4"
+                                                    style="position: absolute;top: 175px;left: 776px;">
+                                                    <div class="time-line-item5"
+                                                        style="background-image: url('/images/history/timeline5.png');width: 244px;height: 246px;">
+                                                    </div>
+                                                </v-tab>
+                                            </v-tabs>
+
+                                        </div>
+                                    </div>
+                                </v-tab-item>
+                            </v-tabs-items>
+
+
+                        </v-container>
+                    </v-tab-item>
+
+
+                    <v-tab-item value="tab-7">
+                        <v-container style="width: 1080px;height: 1920px;background-color: #fff;max-width: 100%;
+                padding: 0;overflow: scroll;">
+                            <div style="width: 1080px;height: 152px;margin-top: 116px;">
+                                <p style="text-align: center;color:#002A9E;font-size: 40px;font-family: 'Segoe UI',Bold;font-weight: 700;padding-top:40px">CÁC KHU DI TÍCH KHÁC</p>
+
+
+
+
+                            </div>
+                            <div style="width: 1080px;height: 1470px;padding:0;box-shadow: -7px -6px 18px #00000029;">
+
+
+                            </div>
+                        </v-container>
+                    </v-tab-item>
+                </v-tabs-items>
+
+
+
+
+                <!--  -->
+                <!-- Footer -->
+                <v-footer style="background-color: transparent;background-image:url('images/home/Group\ 19168.png') ;background-size: cover;width: 1080px;
+                            height: 223px;position: absolute;bottom: 0;padding: 0;z-index: 2;">
+
+                    <div
+                        style="background-image:url('images/home/Mask\ Group\ 1.png') ;background-size: cover;width: 1080px;height:150px;position: absolute;bottom: 0;">
+                    </div>
+                    <v-tabs v-model="tab" style="background-color: transparent;">
+                        <v-tab href="#tab-1" class="primary--text"
+                            style="position: absolute;top: 13px;left: 480px;padding: 0;">
+                            <div v-on:click="mutefalse()"
+                                style="background-color: #fff;box-shadow: inset 0px 0px 8px #00000099;width: 120px;height: 120px;display: flex;align-items: center;justify-content: center;border-radius:50%">
+
+                                <img src="/images/home/home.png" style="width: 50px;height: 50px;">
+                            </div>
+
+                        </v-tab>
+                        <div style="display:flex;margin-left: 64px;" v-on:click="mutefalse()">
+
+                            <v-tab href="#tab-2" class="primary--text" style="height: fit-content;top:123px">
+                                <img src="/images/home/information-button.png">
+                            </v-tab>
+
+                            <v-tab href="#tab-3" class="primary--text"
+                                style="margin-left:58px;top:123px;height: fit-content;">
+                                <img src="/images/home/dimensions.png">
+                            </v-tab>
+                            <v-tab href="#tab-4" class="primary--text"
+                                style="margin-left:58px;top:123px;height: fit-content;">
+                                <img src="/images/home/photo-library.png">
+                            </v-tab>
+                        </div>
+
+                        <div style="display:flex;margin-right: 64px;" v-on:click="mutefalse()">
+                            <v-tab href="#tab-5" class="primary--text" style="top:123px;height: fit-content;">
+                                <img src="/images/home/360-degree.png">
+                            </v-tab>
+
+                            <v-tab href="#tab-6" class="primary--text"
+                                style="margin-left:58px;top:123px;height: fit-content;">
+                                <img src="/images/home/diamond.png">
+                            </v-tab>
+                            <v-tab href="#tab-7" class="primary--text"
+                                style="margin-left:58px;top:123px;height: fit-content;">
+                                <img style="width: 50px; height:50px" src="/images/home/cackhuditichkhac.png">
+                            </v-tab>
+                        </div>
+                    </v-tabs>
+
+
+                </v-footer>
+
+
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/4.0.0-beta.0/bodyScrollLock.min.js"
+        integrity="sha512-3Nm4Kyd9rUTWfh21EUrquXSPtan5lhhOFqnV7xdE9gW7+M8Y6FEyTf7NJQMwtMiCyulb6Wu6j6boo6Q79N/CPA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/flipbook-vue@0.10.4/dist/flipbook.min.js"></script>
+    <script src="./libs/vue-cool-lightbox/vue-cool-lightbox.js"></script>
+    <script src="./js/index.js"></script>
+
+    <style>
+        .image-map.active {
+            display: none;
+        }
+    </style>
+</body>
+
+</html>
